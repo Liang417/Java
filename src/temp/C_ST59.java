@@ -3,8 +3,7 @@ package temp;
  * ÃD¥Øºô§}:
  * https://e-tutor.itsa.org.tw/e-Tutor/mod/programming/view.php?a=3578
  */
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class C_ST59 {
 

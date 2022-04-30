@@ -88,4 +88,7 @@ public class Main {
 		}
 		return null;
 	}
+	public static void none() {
+		
+	}
 }
