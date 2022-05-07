@@ -1,25 +1,6 @@
-package temp;
+package leetcode;
 
-import java.util.*;
-
-public class Test {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		int[][] mat = new int[3][];
-		int[] arr = { 1, 2, 3 };
-		int[] arr2 = { 4, 5, 6 };
-		int[] arr3 = { 7, 8, 9 };
-		mat[0] = arr;
-		mat[1] = arr2;
-		mat[2] = arr3;
-		for (int i : findDiagonalOrder(mat)) {
-			System.out.print(i+",");
-		}
-
-	}
-
+public class Diagonal_Traverse {
 	public static int[] findDiagonalOrder(int[][] mat) {
 		int row = 0;
 		int col = 0;
@@ -39,7 +20,7 @@ public class Test {
 					col += 1;
 				}
 			} else {// %2==0
-				if (row - 1 >=0 && col + 1 < n) {
+				if (row - 1 >= 0 && col + 1 < n) {
 					row -= 1;
 					col += 1;
 				} else if (col + 1 < n) {
