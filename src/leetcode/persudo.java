@@ -4,43 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class persudo {
-	public List<Integer> spiralOrder(int[][] matrix) {
+	public static void main(String[] args) {
+		int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		List<Integer> list = new ArrayList<>();
+		list = func(list, matrix);
+
+	}
+
+	public static List<Integer> func(List<Integer> list, int[][] matrix) {
 		int m = matrix.length;
 		int n = matrix[0].length;
-		int up = 0;
-		int left = 0;
-		int down = m - 1;
-		int right = n - 1;
-		int dir = 0;
-		List<Integer> list = new ArrayList<>();
-		while (up <= down && left <= right) {
-			switch (dir) {
-			case 0:// right
-				for (int i = left; i <= right; i++) {
-					list.add(matrix[up][i]);
+		if (matrix[0].length == 0) {
+			return list;
+		} else {
+			int[][] newMatrix = new int[n][m-1];
+			for (int i = 0,k = 1; i < newMatrix.length; i++) {
+				for (int j = 0,l = n-1; j < newMatrix[0].length; j++) {
+					newMatrix[i][j] = matrix[1][2];
 				}
-				up++;
-				break;
-			case 1:// down
-				for (int i = up; i <= down; i++) {
-					list.add(matrix[i][right]);
-				}
-				right--;
-				break;
-			case 2:// left
-				for (int i = right; i >= left; i--) {
-					list.add(matrix[down][i]);
-				}
-				down--;
-				break;
-			case 3:// up
-				for (int i = down; i >= up; i--) {
-					list.add(matrix[i][left]);
-				}
-				left++;
-				break;
 			}
-			dir = (dir + 1) % 4;
+			for(int i : newMatrix[0] ) {
+				list.add(i);
+			}
+			func(list, newMatrix);
 		}
 		return list;
 	}

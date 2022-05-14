@@ -4,24 +4,41 @@ import java.util.*;
 
 public class Spiral_Matrix {
 	public List<Integer> spiralOrder(int[][] matrix) {
-		int m = matrix.length;
-		int n = matrix[0].length;
-		int row = 0;
-		int column = 0;
-		Integer[] res = new Integer[m * n];
-		for (int i = 0; i < matrix.length * matrix[0].length; i++) {
-			res[i] = matrix[row][column];
-			if (column + 1 < n) {
-				column++;
-			} else if (row + 1 < m) {
-				row++;
-			} else if (column - 1 > 0) {
-				column--;
-			} else {
-				row++;
+		List<Integer> res = new ArrayList<Integer>();
+		int up = 0;
+		int down = matrix.length-1;
+		int right = matrix[0].length-1;
+		int left = 0;
+		int dir = 0;
+		while (down >= up && right >= left) {
+			switch (dir) {
+			case 0:// traverse right
+				for (int i = left; i <= right; i++) {
+					res.add(matrix[up][i]);
+				}
+				up++;
+				break;
+			case 1:// traverse down
+				for (int i = up; i <= down; i++) {
+					res.add(matrix[i][right]);
+				}
+				right--;
+				break;
+			case 2:// traverse left
+				for (int i = right; i >= left; i--) {
+					res.add(matrix[down][i]);
+				}
+				down--;
+				break;
+			case 3:// traverse up
+				for (int i = down; i >= up; i--) {
+					res.add(matrix[i][left]);
+				}
+				left++;
+				break;
 			}
+			dir = (dir + 1) % 4;
 		}
-		List<Integer> list = new ArrayList<>(Arrays.asList(res));
-		return list;
+		return res;
 	}
 }
