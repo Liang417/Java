@@ -15,15 +15,15 @@ public class Longest_Common_Prefix {
 		if(minLen==0) {
 			return sb.toString();
 		}
-		for (int i = 0; i < strs.length; i++) {
+		for (int i = 0; i < strs[index].length(); i++) {
 			int j = 0;
-			for (j = 0; j < strs[index].length(); j++) {
-				if (strs[i].charAt(j) != strs[index].charAt(j)) {
+			for (j = 0; j < strs.length; j++) {
+				if (strs[j].charAt(i) != strs[index].charAt(i)) {
 					return sb.toString();
 				}
 			}
-			sb.append(strs[index].charAt(j-1));
+			sb.append(strs[index].charAt(j));
 		}
-		return sb.toString();
+		return sb.toString().substring(index);
 	}
 }
